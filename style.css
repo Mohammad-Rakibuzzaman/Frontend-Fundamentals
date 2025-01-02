@@ -1,7 +1,7 @@
 
 /* this is a comment */
 
-#catching tag or element
+/* #catching tag or element */
 h1 {
     
 }
@@ -40,7 +40,44 @@ will appear so light and fonts wont be
 that visible and more it is like 0.9 it
  will be more visible */
 body {
-    background-color: azure;
+    /* background-color: azure; */
+    /* background-image: url("https://cdn.pixabay.com/photo/2022/12/01/04/40/backpacker-7628303_1280.jpg"); */
     opacity: 0.7;
+    /* background-image: url("https://plus.unsplash.com/premium_photo-1712956443676-76a1e230c898?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
+    /* when we have small image and want to position in the top right corner */
+    background-position: right top;
+
+}
+
+b {
+    margin-top: 60px;
+}
+
+
+p {
+
+    /* we use margin to have space around the text */
+    /* margin-left: 50px;
+    margin-top: 50px;
+    margin-right: 50px;
+    margin-top: 50px; */
+    
+    /* margin-left: 50%; */
+
+
+
+
+    /* here the sequence it top, right , bottom and left */
+    /* margin: 50px 50px 50px 50px; */
+
+
+    /* we can also declare like top and down, right and left margin */
+
+    /* margin: 50px 50px; */
+
+    /* one more way to give margin in inherit  */
+
+    margin-top: inherit;
+
 
 }
