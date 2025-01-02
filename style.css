@@ -1,0 +1,46 @@
+
+/* this is a comment */
+
+#catching tag or element
+h1 {
+    
+}
+/* in css if we want to catch an id or want to change specific text we have to put #sign in style.css page before the element */
+/* #welcome {
+    color: rgb(61, 80, 73);
+} */
+
+/* another way to select an element is by declaring class */
+/* class is also an attribute which indentifies a particular element */
+/* to declare class */
+/* .header {
+    color: burlywood;
+}
+
+
+h1.header {
+    color: rgb(22, 97, 62);
+} */
+
+/* universal selector */
+* {
+    color:rgb(1, 71, 73);
+}
+
+/* grouping selector */
+h1, #welcome {
+    color: blueviolet;
+}
+
+
+/* background color change */
+
+/*0.1 opacity means so much opacity it 
+will appear so light and fonts wont be 
+that visible and more it is like 0.9 it
+ will be more visible */
+body {
+    background-color: azure;
+    opacity: 0.7;
+
+}
