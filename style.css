@@ -23,9 +23,9 @@ h1.header {
 } */
 
 /* universal selector */
-* {
-    color:rgb(1, 71, 73);
-}
+/* * {
+    color:rgb(0, 0, 0);
+} */
 
 /* grouping selector */
 h1, #welcome {
@@ -152,5 +152,94 @@ h3.mixx {
 
     /* to make it round */
     border-radius: 10px;
+
+    /* so basically we use padding to give some space inside of a border or box */
+    padding-top: 40px;
+    padding-left: 40px;
+
+    /* top right bottom left */
+    padding: 40px 10px 20px 30px;
+    /* top bottom left right if we give 2 parameter */
+    padding: 40px 10px;
+
+    /* we can declare all in 1 command top right bottom left*/
+    padding: 40px;
+
+}
+
+h3.hwx {
+    /* height width */
+    height:150px;
+    width: 150px;
+    background-color: bisque;
+
+    /* to get idea of a page length */
+    width: 40%;
+
+    /* we can indiacte element limited to by max-width by giving max-width:  */
+    max-width: 50%;
+
+
+
+}
+
+/* Outline */
+h3.outline {
+    /*now giving outline of a box. its same as border*/
+    border: 2px dashed darkorchid;
+
+    outline-style: solid;
+
+
+    /* we can set offset for giving space both from outline and border */
+    outline-offset: 10px;  
+
+}
+
+h1#textfirst {
+    color: brown;
+    background-color: aquamarine;
+    text-align: center;
+    height: 50%;
+    width: 45%;
+    
+    /* justify stretches all the words according to its height and
+     widths */
+    /* basically means that particular texts wraps around
+     the whole lenght */
+    
+    text-align: justify;
+    
+    /* below command helps to center the last line text */
+    text-align-last: center ; 
+
+    /* it sends the smaller part to the top. like if we create a
+     new class inside of that particular text and call
+      vertical-align it will go top */
+    vertical-align: top;
+
+
+    text-decoration-line: overline;
+    text-decoration-color: rgb(59, 73, 73);
+    text-decoration-style: dashed;
+    text-decoration-thickness: 10px; 
+    
+    text-decoration: underline purple dotted 4px;
+
+}
+
+
+p {
+    text-transform: capitalize;
+}
+
+h1#textfirst, a {
+    text-decoration: none;
+    text-transform: uppercase;
+    text-transform: capitalize;
+
+    /* text-indent: 100px; */
+
+    letter-spacing: 10px;
 
 }
