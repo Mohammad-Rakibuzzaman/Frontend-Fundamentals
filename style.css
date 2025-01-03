@@ -2,9 +2,9 @@
 /* this is a comment */
 
 /* #catching tag or element */
-h1 {
+/* h1 {
     
-}
+} */
 /* in css if we want to catch an id or want to change specific text we have to put #sign in style.css page before the element */
 /* #welcome {
     color: rgb(61, 80, 73);
@@ -77,7 +77,80 @@ p {
 
     /* one more way to give margin in inherit  */
 
-    margin-top: inherit;
+    /* margin-top: inherit; */
 
+
+
+    /* border */
+    border-style: dotted;
+
+}
+
+h1.header {
+    border-style: solid;
+}
+h1#welcome {
+    border-style: groove;
+}
+/* more thicker than grove */
+h1#wth {
+    border-style: double;
+}
+
+h1#wtf {
+    border-style: ridge;
+}
+h1#wtc {
+    border-style: outset;
+}
+h1#wtd {
+    border-style: inset;
+}
+
+
+h1#welcum {
+    border-style: dashed;
+}
+
+
+p.nones {
+    border-style: none;
+}
+p.hides {
+    border-style: hidden;
+
+}
+
+h2.mixx {
+    border-style: double dotted solid dashed;
+}
+
+h3.mixx {
+    border-style: solid;
+    /* border-width: 5px; */
+    border-width: thick;
+    border-width: medium;
+    border-width: thin;
+
+    /* top right bottom left */
+    border-width: 5px 4px 3px 2px;
+    /* top bottom  || left right */
+    border-width: 5px 4px;
+    
+    /* border color */
+    border-color: black;
+    border-color: black blueviolet;
+    border-color: black blueviolet orangered yellowgreen;
+    /* we can also manually change  */
+    border-top-style: dashed; 
+
+    /* we can change everything by 1 order */
+
+    border-left: 3px dashed purple;
+    border: 3px dashed purple;
+
+
+    /* to make it round */
+    border-radius: 10px;
 
 }
