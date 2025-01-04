@@ -256,10 +256,125 @@ h1#fontstyle {
     font-weight: normal;
 
     font-size: 50px;
-    font-size: 5em; /*16 px = 1em */
+    font-size: 2em; /*16 px = 1em */
 
 
 }
 
 
 /* icons */
+
+/* table, th, td {
+    border: 2px solid;
+    width: 50%;
+    border-collapse: collapse;
+
+} */
+
+th, td {
+    height:  50px;
+    padding: 10px;
+}
+
+/* td {
+    text-align: center;
+} */
+
+tr:hover {
+    background-color: brown;
+}
+
+
+/* Display and visibility */
+table, th, td {
+    /* display: none; */
+    visibility: hidden;
+    border: 2px solid;
+    width: 50%;
+    border-collapse: collapse;
+}
+
+
+
+/* Combinators */
+/* descendant selector */
+/* 
+h4 b {
+    color: red;
+
+} */
+
+/* child selector > */
+/* should be direct child */
+
+/* h4 > b {
+    color: red;
+} */
+
+
+/* adjascent siblings selector+ */
+
+h4 + b {
+    color: red;
+}
+
+/* general sibling selector ~ */
+/* this sign means any child after that 
+siblings or close to each one
+ gonna be red*/
+h4 ~ b {
+    color: red;
+}
+
+
+/* above are the major 4 combinators */
+
+
+
+/* Dropdown menu */
+
+/* attribute selector */
+
+div[class="test"] {
+    color: rgb(12, 5, 116);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
