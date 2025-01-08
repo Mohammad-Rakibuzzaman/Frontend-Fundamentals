@@ -88,7 +88,7 @@ const locations = [{
     {
         name: "kill monster", 
         "button text": ["Go to town square", "Go to town square", "Go to town square"],
-        "button functions": [goTown, goTown, goTown],
+        "button functions": [goTown, goTown, easterEgg],
         text: 'The monster screams "Arg!" as it dies. You gain experience points and find gold.'
     },
     {
@@ -103,12 +103,7 @@ const locations = [{
         "button functions": [restart, restart, restart],
         text: 'You defeat the dragon !!! You WON !!!!!'
     },
-    {
-        name: "win", 
-        "button text": ["Reply?", "Reply?", "Reply?"],
-        "button functions": [restart, restart, restart],
-        text: 'You defeat the dragon !!! You WON !!!!!'
-    },
+    
     {
         name: "easter egg", 
         "button text": ["2", "8", "Go to town square?"],
