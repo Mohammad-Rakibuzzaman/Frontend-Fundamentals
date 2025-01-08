@@ -84,9 +84,37 @@ const locations = [{
         "button text": ["Attack", "Dodge", "Run"],
         "button functions": [attack, dodge, goTown],
         text: "You are fighting a monster."
+    },
+    {
+        name: "kill monster", 
+        "button text": ["Go to town square", "Go to town square", "Go to town square"],
+        "button functions": [goTown, goTown, goTown],
+        text: 'The monster screams "Arg!" as it dies. You gain experience points and find gold.'
+    },
+    {
+        name: "lose", 
+        "button text": ["Reply?", "Reply?", "Reply?"],
+        "button functions": [restart, restart, restart],
+        text: 'You die. :('
+    }, 
+    {
+        name: "win", 
+        "button text": ["Reply?", "Reply?", "Reply?"],
+        "button functions": [restart, restart, restart],
+        text: 'You defeat the dragon !!! You WON !!!!!'
+    },
+    {
+        name: "win", 
+        "button text": ["Reply?", "Reply?", "Reply?"],
+        "button functions": [restart, restart, restart],
+        text: 'You defeat the dragon !!! You WON !!!!!'
+    },
+    {
+        name: "easter egg", 
+        "button text": ["2", "8", "Go to town square?"],
+        "button functions": [pickTwo, pickTwo, pickTwo],
+        text: 'You find a secret game. Pick a number above. Ten numbers will be randomly chosen between 0 and 10. If the number you choose matches one of the random numbers, you win!'
     }
-
-
 
 ]
 
@@ -106,6 +134,7 @@ button3.onclick = fightDragon;
 
 
 function update(location) {
+    monsterStats.style.display = "none";
     button1.innerText = location["button text"][0];
     button2.innerText = location["button text"][1];
     button3.innerText = location["button text"][2];
@@ -205,29 +234,115 @@ function goFight() {
 function attack() {
     text.innerText = "The " + monsters[fighting].name + " attacks.";
     text.innerText += " You attack it with your " + weapons[currentWeapon].name + ".";
-    health -= monsters[fighting].level;
+    
+    if (isMonsterHit()) {
+        health -= getMonsterAttackValue(monsters[fighting].level);
+    } else {
+        text.innerText += " You miss."
+    }
+    
+    
     monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
     healthText.innerText = health;
     monsterHealthText.innerText = monsterHealth;
     if (health <= 0) {
         lose();
     } else if (monsterHealth <= 0) {
-        defeatMonster();
+        fighting === 2 ? winGame() : defeatMonster();
     } 
 
+    if (Math.random() <= .1 && inventory.length !== 1) {
+        text.innerText += " Your " + inventory.pop() + " breaks.";
+        currentWeapon--;
+    }
+
 
 }
+
+function getMonsterAttackValue(level) {
+    let hit = (level * 5) - (Math.floor(Math.random() * xp));
+    console.log(hit);
+    return hit;
+}
+
+function isMonsterHit() {
+    return Math.random() > .2 || health < 20;
+}
+
+
 function dodge() {
-   
+    text.innerText = "You dodge the attack from the " + monsters[fighting].name + ".";
+    
 }
+
 function defeatMonster() {
-   
+   gold += Math.floor(monsters[fighting].level * 6.7);
+   xp += monsters[fighting].level;
+   goldText.innerText = gold;
+   xpText.innerText = xp;
+   update(locations[4])
 }
+
 function lose() {
-   
+   update(locations[5]);
+
+}
+function winGame() {
+   update(locations[6]);
+
 }
 
+function restart() {
+    let xp = 0;
+    let health = 100;
+    let gold = 50;
+    let currentWeapon = 0;
+    let inventory = ["stick"];
+    goldText.innerText = gold;
+    healthText.innerText = health;
+    xpText.innerText = xp;
+    goTown();
+}
 
+function easterEgg() {
+    update(locations[7]);
+}
+
+function pickTwo() {
+    pick(2);
+}
+
+function pickEight() {
+    pick(8);
+}
+
+function pick(guess){
+    let numbers = [];
+    while (numbers.length < 10) {
+        numbers.push(Math.floor(Math.random() * 11));
+    }
+
+    text.innerText = "You picked " + guess + ". Here are the random numbers:\n";
+
+    for (let i = 0; i < 10; i++) {
+        text.innerText += numbers[i] + "\n";
+    }
+
+    if (numbers.indexOf(guess) !== -1) {
+        text.innerText += "Right! you win 20 gold!!!!!"
+        gold += 20;
+        goldText.innerText = gold;
+    } else {
+        text.innerText += "Wrong! You lose 10 health!"
+        health -= 10;
+        healthText.innerText = health;
+        if (health <= 0) {
+            lose();
+        }
+    }
+
+
+}
 
 
 
