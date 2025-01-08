@@ -40,24 +40,53 @@ const weapons = [
 ];
 
 
+const monsters = [
+    {
+        name: "slime",
+        level: 2,
+        health: 15
+    },
+    {
+        name: "fanged beast",
+        level: 8,
+        health: 60
+    },
+    {
+        name: "dragon",
+        level: 20,
+        health: 300
+    }
+
+
+];
+
+
 const locations = [{
     name: "town square",
     "button text": ["Go to store", "Go to cave", "Fight dragon"],
     "button functions": [goStore, goCave, fightDragon],
     text: "You are in the town square.You see a sign that says \"store\"."
-},
-{
-    name: "store",
-    "button text": ["Buy 10 health (10 coins)", "Buy weapon (30 coins)", "Go to town square"],
-    "button functions": [buyHealth, buyWeapon, goTown],
-    text: "You enter the store."
-},
-{
-    name: "cave", 
-    "button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
-    "button functions": [fightSlime, fightBeast, goTown],
-    text: "You enter the cave! You see some monsters."
-}
+    },
+    {
+        name: "store",
+        "button text": ["Buy 10 health (10 coins)", "Buy weapon (30 coins)", "Go to town square"],
+        "button functions": [buyHealth, buyWeapon, goTown],
+        text: "You enter the store."
+    },
+    {
+        name: "cave", 
+        "button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
+        "button functions": [fightSlime, fightBeast, goTown],
+        text: "You enter the cave! You see some monsters."
+    }, 
+    {
+        name: "fight", 
+        "button text": ["Attack", "Dodge", "Run"],
+        "button functions": [attack, dodge, goTown],
+        text: "You are fighting a monster."
+    }
+
+
 
 ]
 
@@ -149,16 +178,54 @@ function sellWeapon() {
 
 
 function fightSlime() {
-    console.log("Fighting with dragon.")
+    // console.log("Fighting with dragon.")
+    fighting = 0;
+    goFight();
 }
 function fightBeast() {
-    console.log("Fighting with dragon.")
+    // console.log("Fighting with dragon.")
+    fighting = 1;
+    goFight();
 }
 
 function fightDragon() {
-    console.log("Fighting with dragon.");
+    // console.log("Fighting with dragon.");
+    fighting = 2;
+    goFight();
 }
 
+function goFight() {
+    update(locations[3]);
+    monsterHealth = monsters[fighting].health;
+    monsterStats.style.display = "block";
+    monsterNameText.innerText = monsters[fighting].name;
+    monsterHealthText.innerText = monsterHealth;
+
+}
+function attack() {
+    text.innerText = "The " + monsters[fighting].name + " attacks.";
+    text.innerText += " You attack it with your " + weapons[currentWeapon].name + ".";
+    health -= monsters[fighting].level;
+    monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+    healthText.innerText = health;
+    monsterHealthText.innerText = monsterHealth;
+    if (health <= 0) {
+        lose();
+    } else if (monsterHealth <= 0) {
+        defeatMonster();
+    } 
+
+
+}
+function dodge() {
+   
+}
+function defeatMonster() {
+   
+}
+function lose() {
+   
+}
 
 
 
